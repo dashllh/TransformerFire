@@ -13,7 +13,7 @@ namespace TransformerFireApp.Core
 
         private void RefreshSensorData(object status)
         {
-            var _sensorData = GlobalData.Data?["SensorData"] as SensorData;            
+            var _sensorData = GlobalData.Data["SensorData"] as SensorData;            
         }
 
         public void StartDAQ()
