@@ -11,7 +11,7 @@ namespace TransformerFireApp.Core
             _timer.Change(0, Timeout.Infinite);
         }
 
-        private void RefreshSensorData(object? status)
+        private void RefreshSensorData(object status)
         {
             var _sensorData = GlobalData.Data?["SensorData"] as SensorData;            
         }

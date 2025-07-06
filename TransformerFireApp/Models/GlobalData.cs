@@ -2,6 +2,6 @@
 {
     internal class GlobalData
     {
-        public static Dictionary<string, object>? Data { get; set; }
+        public static Dictionary<string, object> Data { get; set; }
     }
 }

@@ -37,7 +37,7 @@ namespace TransformerFireApp
                 Environment.Exit(1);
             }
 
-            if (apparatus.InitailizeConnection())
+            if (apparatus.InitailizeConnection(string.Empty,string.Empty))
             {
                 // 启动试验设备数据采集
                 apparatus.StartDAQ();
