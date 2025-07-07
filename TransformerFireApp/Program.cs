@@ -1,4 +1,4 @@
-using TransformerFireApp.Core;
+ï»¿using TransformerFireApp.Core;
 using TransformerFireApp.Models;
 using Microsoft.Extensions.Configuration;
 
@@ -17,36 +17,34 @@ namespace TransformerFireApp
             ApplicationConfiguration.Initialize();
 
             SensorData sensorData = new SensorData();
-            Apparatus apparatus = new Apparatus();
+            Apparatus apparatus = new Apparatus();            
 
-            // »ñÈ¡ÅäÖÃÎÄ¼ş¶ÔÓ¦Ïî,²¢°ó¶¨ÖÁ¶ÔÓ¦µÄObject instance
+            // è·å–é…ç½®æ–‡ä»¶å¯¹åº”é¡¹å¹¶ç»‘å®šè‡³å¯¹åº”çš„Object instance
             try
             {
                 IConfigurationRoot config = new ConfigurationBuilder()
                 .AddJsonFile("appconfig.json")
                 .Build();
                 
-                // °ó¶¨Éè±¸Á¬½Ó²ÎÊı
                 config.GetSection("apparatus").Bind(apparatus);
-                // ÆäËûÄ¬ÈÏÊäÈëĞÅÏ¢
                 //config.GetSection("defaultvalue").Bind(dataModel);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ó¦ÓÃ³ÌĞòÅäÖÃÏîÊı¾İÉèÖÃ´íÎó,Çë¼ì²éÎÄ¼ş!\n" + e.Message, "ÏµÍ³Òì³£", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("åº”ç”¨ç¨‹åºé…ç½®é¡¹æ•°æ®è®¾ç½®é”™è¯¯ï¼Œè¯·æ£€æŸ¥æ–‡ä»¶!\n" + e.Message, "ç³»ç»Ÿæç¤º", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(1);
             }
 
+            // åˆå§‹åŒ–åº”ç”¨ç¨‹åºå…¨å±€å¯¹è±¡
+            GlobalData.Data = new Dictionary<string, object>();
+            GlobalData.Data.Add("SensorData", sensorData);
+            GlobalData.Data.Add("Apparatus", apparatus);
+
             if (apparatus.InitailizeConnection(string.Empty,string.Empty))
             {
-                // Æô¶¯ÊÔÑéÉè±¸Êı¾İ²É¼¯
+                // å¯åŠ¨ä¼ æ„Ÿå™¨æ•°æ®é‡‡é›†
                 apparatus.StartDAQ();
-            }
-
-            // ³õÊ¼»¯Ó¦ÓÃ³ÌĞòÈ«¾Ö´æ´¢
-            GlobalData.Data = new Dictionary<string, object>();
-            GlobalData.Data?.Add("SensorData", sensorData);
-            GlobalData.Data?.Add("Apparatus", apparatus);
+            }            
             
             Application.Run(new MainWindow());
         }

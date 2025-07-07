@@ -50,7 +50,7 @@ namespace TransformerFireApp.Core
                 MessageBox.Show(e.Message, "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            return true;
+            return false;
         }
         // 检查设备连接状态
         internal bool GetApparatusConnectionStatus()

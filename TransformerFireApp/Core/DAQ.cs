@@ -8,7 +8,6 @@ namespace TransformerFireApp.Core
         public DAQ()
         {
             _timer = new System.Threading.Timer(RefreshSensorData);
-            _timer.Change(0, Timeout.Infinite);
         }
 
         private void RefreshSensorData(object status)
