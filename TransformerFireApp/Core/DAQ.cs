@@ -19,8 +19,8 @@ namespace TransformerFireApp.Core
             _sensors[1].CurrentSignal = 200.0f; // 模拟传感器数据更新
             _sensors[2].CurrentSignal = 300.0f; // 模拟传感器数据更新
             // 更新传感器当前值快照
-            _sensorSnap.OilInnerTemp = _sensors[0].CurrentOutput;
-            _sensorSnap.OilSurfaceTemp = _sensors[1].CurrentOutput;
+            _sensorSnap.TankInnerTemperature = _sensors[0].CurrentOutput;
+            _sensorSnap.TankSurfaceTemperature = _sensors[1].CurrentOutput;
             _sensorSnap.AtomizationPressure = _sensors[2].CurrentOutput;
         }
 

@@ -18,8 +18,11 @@ public partial class AppDBContext : DbContext
 
     public virtual DbSet<Sensor> Sensors { get; set; }
 
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //    => optionsBuilder.UseSqlite("Data Source=C:\\VS2022Projects\\TransformerFireApp\\appdb.db");
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlite("Data Source=C:\\VS2022Projects\\TransformerFireApp\\appdb.db");
+        => optionsBuilder.UseSqlite("Data Source= C:\\Users\\liu_lihan\\source\\repos\\ProgrammingTrain\\appdb.db");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
