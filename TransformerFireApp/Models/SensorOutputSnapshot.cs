@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace TransformerFireApp.Models
 {
-    internal class SensorData
+    internal class SensorOutputSnapshot
     {        
         // 油面温度
-        internal double OilSurfaceTemp { get; set; } = 0.0;
+        internal float OilSurfaceTemp { get; set; } = 0.0F;
         // 储油罐内部温度
-        internal double OilInnerTemp { get; set; } = 0.0;
+        internal float OilInnerTemp { get; set; } = 0.0F;
         // 雾化区域压力
-        internal double AtomizationPressure { get; set; } = 0.0;
+        internal float AtomizationPressure { get; set; } = 0.0F;
         // 热流
-        internal double HeatFlow { get; set; } = 0.0;
+        internal float HeatFlow { get; set; } = 0.0F;
         // 点火器状态
         internal bool IgniterStatus { get; set; } = false;
     }

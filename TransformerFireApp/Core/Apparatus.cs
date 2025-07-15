@@ -12,11 +12,12 @@ namespace TransformerFireApp.Core
         // 摄像机接口
         private string _rtspAddress { get; set; } = string.Empty;
         // 数据采集对象
-        private DAQ Daq { get; set; }
-
+        private DAQ _Daq { get; set; }
+        // 摄像头对象
+        private FireDetect _fireDetect { get; set; }
         public Apparatus()
         {
-            Daq = new DAQ();
+            _Daq = new DAQ();
             // 初始化设备连接对象
             _modbusClient = new();
             _modbusClient.BaudRate = 9600;
@@ -60,12 +61,12 @@ namespace TransformerFireApp.Core
         // 启动数据采集
         internal void StartDAQ()
         {
-            Daq.StartDAQ();
+            _Daq.StartDAQ();
         }
         // 停止数据采集
         internal void StopDAQ()
         {
-            Daq.StopDAQ();
+            _Daq.StopDAQ();
         }
         // 打开点火器
         internal bool OpenIgniter()

@@ -78,6 +78,7 @@
             // 
             // btnCloseVideo
             // 
+            btnCloseVideo.Enabled = false;
             btnCloseVideo.Location = new Point(1005, 529);
             btnCloseVideo.Name = "btnCloseVideo";
             btnCloseVideo.Size = new Size(140, 45);
@@ -148,12 +149,14 @@
             // 
             // btnCheckResult
             // 
+            btnCheckResult.Enabled = false;
             btnCheckResult.Location = new Point(838, 529);
             btnCheckResult.Name = "btnCheckResult";
             btnCheckResult.Size = new Size(140, 45);
             btnCheckResult.TabIndex = 8;
             btnCheckResult.Text = "开始测量";
             btnCheckResult.UseVisualStyleBackColor = true;
+            btnCheckResult.Click += btnCheckResult_Click;
             // 
             // btnCloseForm
             // 
@@ -169,7 +172,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1337, 611);
+            ClientSize = new Size(1325, 604);
             Controls.Add(btnCloseForm);
             Controls.Add(btnCheckResult);
             Controls.Add(groupBox2);
@@ -178,8 +181,12 @@
             Controls.Add(btnOpenVideo);
             Controls.Add(picThreshHold);
             Controls.Add(picOrigin);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "VideoCalibrateForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "摄像头校准";
+            Load += VideoCalibrateForm_Load;
             ((System.ComponentModel.ISupportInitialize)picOrigin).EndInit();
             ((System.ComponentModel.ISupportInitialize)picThreshHold).EndInit();
             groupBox1.ResumeLayout(false);
